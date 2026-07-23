@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة حالة - MappMaster</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/blacklist.css">
+</head>
+<body>
+
+        <!-- ✅ Navigation Bar -->
+        <footer class="bottom-nav">
+            <div class="bottom-nav-container">
+                <a href="dashboard.html" class="bottom-nav-item active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>الرئيسية</span>
+                </a>
+                <a href="blacklist.html" class="bottom-nav-item">
+                    <i class="fa-solid fa-person-circle-xmark"></i>
+                    <span>إضافة حالة</span>
+                </a>
+                <a href="search.html" class="bottom-nav-item">
+                    <i class="fa-solid fa-magnifying-glass"></i>       
+                  <span>بحث</span>
+                </a>
+                <a href="reports.html" class="bottom-nav-item">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>التقارير</span>
+                </a>
+               
+                <a href="settings.html" class="bottom-nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>الإعدادات</span>
+                </a>
+    
+                <button id="logoutBtn" class="bottom-nav-item logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>خروج</span>
+                </button>
+            </div>
+            
+        </footer>
+
+    <!-- ✅ المحتوى -->
+    <main class="blacklist-main">
+        <div class="blacklist-container">
+
+            <!-- ✅ هيدر الفورم -->
+            <div class="form-header">
+                <h1 id="blacklistFormTitle">إدراج في قائمة الحظر</h1>
+                <h5 id="blacklistFormTitle2">بلاك ليست ❌</h5>
+                <p class="form-subtitle">يرجى ملء البيانات بدقة لتسجيل المخالفة في النظام العام</p>
+            </div>
+
+            <!-- ✅ الفورم -->
+            <form id="employeeForm" class="modern-grid-form">
+                <input type="hidden" id="employeeFormId">
+
+                <!-- بيانات الموظف -->
+                <div class="form-section-title">👤 بيانات الموظف الأساسية</div>
+                <div class="form-row-grid">
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user input-icon"></i>
+                        <input type="text" name="employeeName" id="employeeName" placeholder="اسم الموظف رباعي" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-id-card input-icon"></i>
+                        <input type="number" name="nationalId" id="nationalId" placeholder="الرقم القومي (14 رقم)" required>
+                    </div>
+                    <div class="input-wrapper full-width">
+                        <i class="fa-solid fa-location-dot input-icon"></i>
+                        <input type="text" name="address" id="address" placeholder="عنوان محل الإقامة بالكامل" required>
+                    </div>
+                </div>
+
+                <!-- تفاصيل المحطة -->
+                <div class="form-section-title">⛽ تفاصيل المحطة وجهة العمل</div>
+                <div class="form-row-grid">
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-gas-pump input-icon"></i>
+                        <input type="text" id="stationName" placeholder="اسم المحطة" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user-tie input-icon"></i>
+                        <input type="text" id="agent" placeholder="وكيل أو شركة" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user-check input-icon"></i>
+                        <input type="text" id="Recruitment_Officer" placeholder="مسؤول التوظيف" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user-gear input-icon"></i>
+                        <input type="text" id="Operations_Manager" placeholder="مدير التشغيل" required>
+                    </div>
+                </div>
+
+                <!-- تفاصيل المخالفة -->
+                <div class="form-section-title">⚠️ تفاصيل سبب الإدراج</div>
+                <div class="form-row-grid">
+                    <div class="input-wrapper full-width">
+                        <i class="fa-solid fa-arrow-right-from-bracket input-icon"></i>
+                        <input type="text" id="Leave_work" placeholder="سبب ترك العمل الأساسي" required>
+                    </div>
+                    <div class="input-wrapper full-width">
+                        <i class="fa-solid fa-comment-dots input-icon"></i>
+                        <input type="text" id="comments" placeholder="ملاحظات تفصيلية حول الواقعة" required>
+                    </div>
+                    <div class="input-group date-input-group full-width">
+                        <label for="leavingDate"><i class="fa-solid fa-calendar-days"></i> تاريخ ترك العمل الفعلي:</label>
+                        <input type="date" id="leavingDate" required>
+                    </div>
+                </div>
+
+                <!-- أزرار -->
+                <div class="blacklist-actions-container">
+                    <button id="submitBtn" type="submit">
+                        <i class="fa-solid fa-floppy-disk"></i> حفظ البيانات وإدراج في النظام
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </main>
+
+    <!-- ✅ JS -->
+    <script type="module" src="../js/shared.js"></script>
+    <script type="module" src="../js/session-tracker.js"></script>
+    <script type="module" src="../js/blacklist.js"></script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+/* ==========================================
+   🏠 الصفحة الرئيسية (Dashboard)
+   ========================================== */
+
+/* ✅ Navigation Bar */
+.main-nav {
+    background: #ffffff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-nav .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.main-nav .logo i {
+    color: #3b82f6;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #64748b;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.main-nav ul li a:hover {
+    color: #0f172a;
+    background: #f1f5f9;
+}
+
+.main-nav ul li a.active {
+    color: #3b82f6;
+    background: #eff6ff;
+}
+
+/* ✅ Dashboard */
+.dashboard-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px 100px 20px;
+}
+
+.dashboard-welcome {
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.dashboard-welcome h4 {
+    font-size: 1.3rem;
+    color: #0f172a;
+    margin: 0;
+}
+
+.dashboard-welcome p {
+    color: #64748b;
+    margin: 5px 0 0 0;
+    font-size: 0.9rem;
+}
+
+#currentUserName {
+    color: #3b82f6;
+    font-weight: 700;
+}
+
+/* ✅ Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.total-cases .stat-icon {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.active-stations .stat-icon {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.stat-info h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.stat-info p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* ✅ Recent List */
+.dashboard-content {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+}
+
+.box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.box-header h4 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 1rem;
+}
+
+.recent-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.recent-list .loading-placeholder {
+    text-align: center;
+    padding: 30px;
+    color: #94a3b8;
+}
+
+.recent-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: #f8fafc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.recent-item:hover {
+    background: #f1f5f9;
+}
+
+.recent-item-info h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #0f172a;
+}
+
+.recent-item-info p {
+    margin: 2px 0 0 0;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+    
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   💬 أيقونة الرسائل
+   ========================================== */
+
+   .messages-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.messages-icon-container {
+    position: relative;
+}
+
+.messages-toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: #64748b;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 50%;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.messages-toggle-btn:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.unread-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #ef4444;
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 50%;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+}
+
+/* ✅ رسائل في الديلوج */
+.message-item {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 8px;
+}
+
+.message-item:hover {
+    background: #f8fafc;
+}
+
+.message-item .msg-sender {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 0.9rem;
+}
+
+.message-item .msg-preview {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.message-item .msg-time {
+    font-size: 0.65rem;
+    color: #94a3b8;
+    float: left;
+}
+
+.message-item .msg-status {
+    font-size: 0.6rem;
+    color: #10b981;
+}
+
+.message-item.unread {
+    background: #eff6ff;
+    border-right: 3px solid #3b82f6;
+}
+
+.message-item.unread .msg-sender {
+    color: #1d4ed8;
+}
+
+/* ✅ عداد الرسائل في الناف بار */
+.chat-nav-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #ef4444;
+    color: white;
+    font-size: 0.55rem;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+}
+
+.bottom-nav-item {
+    position: relative;
+}
+
+
+/* ✅ PWA Install Banner */
+#installBanner {
+    display: none;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+#installBanner strong {
+    font-size: 1rem;
+}
+
+#installBanner p {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+#installAppBtn {
+    background: white;
+    color: #3b82f6;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Cairo', sans-serif;
+}
+
+#installAppBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#closeInstallBanner {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+#closeInstallBanner:hover {
+    background: rgba(255,255,255,0.1);
+}

@@ -1,0 +1,249 @@
+/* ==========================================
+   ⚠️ صفحة إضافة الحالات (Blacklist)
+   ========================================== */
+
+/* ✅ Navigation */
+.main-nav {
+    background: #ffffff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-nav .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.main-nav .logo i {
+    color: #3b82f6;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #64748b;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.main-nav ul li a:hover {
+    color: #0f172a;
+    background: #f1f5f9;
+}
+
+.main-nav ul li a.active {
+    color: #3b82f6;
+    background: #eff6ff;
+}
+
+/* ✅ Container */
+.blacklist-main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 20px 100px 20px;
+}
+
+.blacklist-container {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    border: 1px solid #eef2f6;
+}
+
+/* ✅ Header */
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f8fafc;
+    padding-bottom: 20px;
+}
+
+#blacklistFormTitle {
+    font-size: 1.6rem;
+    color: #1e293b;
+    margin: 0 0 5px 0;
+    font-weight: 700;
+}
+
+#blacklistFormTitle2 {
+    font-size: 1.1rem;
+    color: #ef4444;
+    margin: 5px 0;
+    background: #fef2f2;
+    display: inline-block;
+    padding: 4px 15px;
+    border-radius: 20px;
+    border: 1px solid #fee2e2;
+}
+
+.form-subtitle {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 8px 0 0 0;
+}
+
+/* ✅ Form Sections */
+.form-section-title {
+    font-size: 0.95rem;
+    color: #1e3c72;
+    font-weight: 700;
+    margin: 25px 0 15px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* ✅ Grid */
+.form-row-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+/* ✅ Inputs */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    right: 12px;
+    color: #94a3b8;
+    font-size: 0.95rem;
+    pointer-events: none;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 38px 12px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: #1e293b;
+    background-color: #f8fafc;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: #ef4444;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+/* ✅ Date Input */
+.date-input-group {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.date-input-group label {
+    font-size: 0.85rem;
+    color: #475569;
+    font-weight: 600;
+}
+
+.date-input-group label i {
+    color: #ef4444;
+    margin-left: 5px;
+}
+
+.date-input-group input[type="date"] {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: #1e293b;
+    outline: none;
+}
+
+/* ✅ Submit Button */
+#submitBtn {
+    width: 100%;
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#submitBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+    background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+    
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .form-row-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .full-width {
+        grid-column: span 1;
+    }
+    
+    .date-input-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .date-input-group input {
+        width: 100%;
+    }
+    
+    .blacklist-container {
+        padding: 15px;
+    }
+}

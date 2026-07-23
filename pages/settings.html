@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات - MappMaster</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/settings.css">
+</head>
+<body>
+
+       <!-- ✅ Navigation Bar -->
+       <footer class="bottom-nav">
+        <div class="bottom-nav-container">
+            <a href="dashboard.html" class="bottom-nav-item active">
+                <i class="fa-solid fa-house"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="blacklist.html" class="bottom-nav-item">
+                <i class="fa-solid fa-person-circle-xmark"></i>
+                <span>إضافة حالة</span>
+            </a>
+            <a href="search.html" class="bottom-nav-item">
+                <i class="fa-solid fa-magnifying-glass"></i>       
+              <span>بحث</span>
+            </a>
+            <a href="reports.html" class="bottom-nav-item">
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>التقارير</span>
+            </a>
+           
+            <a href="settings.html" class="bottom-nav-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>الإعدادات</span>
+            </a>
+
+            <button id="logoutBtn" class="bottom-nav-item logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>خروج</span>
+            </button>
+        </div>
+        
+    </footer>
+
+    <!-- ✅ المحتوى -->
+    <main class="settings-main">
+        <div class="settings-container">
+
+            <!-- ✅ Profile Header -->
+            <div class="profile-header-card">
+                <div class="settings-cover"></div>
+                <div class="settings-avatar-container">
+                    <div class="settings-avatar">
+                        <span class="avatar-online"></span>
+                    </div>
+                </div>
+                <div class="settings-user-meta">
+                    <h2 id="settingsStationName">جاري التحميل...</h2>
+                    <p id="settingsEmail">جاري التحميل...</p>
+                    <span class="station-badge">محطة وقود معتمدة 🛡️</span>
+                </div>
+            </div>
+
+            <!-- ✅ Stats -->
+            <div class="settings-stats-grid">
+                <div class="s-stat-card">
+                    <i class="fa-solid fa-gas-pump"></i>
+                    <span class="s-stat-num" id="stationBranchesCount">--</span>
+                    <span class="s-stat-label">عدد محطاتك</span>
+                </div>
+                <div class="s-stat-card alert-stat">
+                    <i class="fa-solid fa-user-slash"></i>
+                    <span class="s-stat-num" id="blockedUsersCount">--</span>
+                    <span class="s-stat-label">المحظورين لديك</span>
+                </div>
+                <div class="s-stat-card progress-stat">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    <span class="s-stat-num" id="publishRate">--</span>
+                    <span class="s-stat-label">مؤشر النشر</span>
+                </div>
+            </div>
+
+            <!-- ✅ Account Info -->
+            <div class="settings-main-card">
+                <h3>📋 بيانات الحساب والاتصال</h3>
+                <div class="info-row">
+                    <label>🔑 معرف الحساب (ID):</label>
+                    <span class="info-val id-badge" id="settingsUserId">--</span>
+                </div>
+                <div class="info-row">
+                    <label>📞 رقم الهاتف المسجل:</label>
+                    <span class="info-val" id="settingsPhone">--</span>
+                </div>
+
+                <!-- ✅ كارت رقم الهاتف والتواصل -->
+<div class="settings-main-card">
+    <h3>📞 بيانات التواصل</h3>
+    
+    <!-- رقم الهاتف -->
+    <div class="info-row">
+        <label>📱 رقم الموبايل للتواصل:</label>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <input type="tel" id="settingsPhoneInput" placeholder="مثال: 01012345678" 
+                   style="padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-family: 'Cairo'; width: 180px; text-align: left; direction: ltr;">
+            <button id="savePhoneBtn" class="btn btn-primary btn-sm">💾 حفظ</button>
+        </div>
+    </div>
+
+    <!-- Toggle إظهار الرقم -->
+    <div class="agent-toggle-box">
+        <div class="toggle-details">
+            <span class="toggle-lbl">📢 إظهار رقمك للوكلاء الآخرين</span>
+            <p class="toggle-sub">عند التفعيل، سيظهر رقم هاتفك للوكلاء الآخرين في النظام لتسهيل التواصل.</p>
+        </div>
+        <label class="custom-switch">
+            <input type="checkbox" id="showPhoneToggle">
+            <span class="custom-slider round"></span>
+        </label>
+    </div>
+
+    <!-- حالة الرقم الحالية -->
+    <div id="phoneStatusDisplay" style="margin-top: 10px; padding: 8px 12px; border-radius: 8px; font-size: 0.85rem; background: #f8fafc; border: 1px solid #e2e8f0;">
+        <span id="phoneStatusText">📱 الرقم: <strong id="displayPhoneNumber">غير مضاف</strong></span>
+        <span id="phoneVisibilityText" style="margin-right: 15px; color: #64748b;">
+            الحالة: <span id="visibilityStatus">🔒 غير ظاهر</span>
+        </span>
+    </div>
+</div>
+            </div>
+
+            <!-- ✅ Alert -->
+            <div class="settings-alert-card">
+                <p>⚠️ <strong>تنبيه الأمان:</strong> تعديل اسم المحطة أو تعيين كلمة مرور جديدة يتم حصرياً من خلال الإدارة العامة للنظام (Admin).</p>
+            </div>
+
+            <!-- ✅ Actions -->
+            <div class="settings-actions-footer">
+                <button id="logoutBtn" class="logout-btn-fakhra">
+                    <i class="fa-solid fa-right-from-bracket"></i> تسجيل خروج من الحساب
+                </button>
+                <a href="https://wa.me/0201011295385" target="_blank" class="developer-contact-btn">
+                    <i class="fa-brands fa-whatsapp"></i> التواصل مع مطور النظام
+                </a>
+            </div>
+
+        </div>
+        
+    </main>
+
+    <!-- ✅ JS -->
+    <script type="module" src="../js/shared.js"></script>
+    <script type="module" src="../js/session-tracker.js"></script>
+    <script type="module" src="../js/settings.js"></script>
+</body>
+</html>

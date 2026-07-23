@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المحادثة - MappMaster</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/chat.css">
+</head>
+<body>
+
+    <!-- ✅ Navigation Bar (فوق) -->
+    <nav class="chat-nav">
+        <div class="chat-nav-content">
+            <button id="backToDashboard" class="btn btn-secondary btn-sm">
+                <i class="fa-solid fa-arrow-right"></i> رجوع
+            </button>
+            <div class="chat-user-info">
+                <div class="chat-user-avatar" id="chatUserAvatar">👤</div>
+                <div>
+                    <div class="chat-user-name" id="chatUserName">جاري التحميل...</div>
+                    <div class="chat-user-status" id="chatUserStatus">🟢 متصل</div>
+                </div>
+            </div>
+            <div></div> <!-- فارغ للتوازن -->
+        </div>
+    </nav>
+
+    <!-- ✅ رسائل الشات -->
+    <main class="chat-main">
+        <div id="chatMessagesContainer" class="chat-messages-container">
+            <div class="chat-empty-state">
+                <i class="fa-regular fa-comment-dots"></i>
+                <p>جاري تحميل المحادثة...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- ✅ حقل الإدخال -->
+    <div class="chat-input-container">
+        <div class="chat-input-wrapper">
+            <input type="text" id="chatInput" placeholder="اكتب رسالتك هنا..." autofocus>
+            <button id="sendChatBtn" class="btn btn-primary">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ✅ JS -->
+    <script type="module" src="../js/shared.js"></script>
+    <script type="module" src="../js/session-tracker.js"></script>
+    <script type="module" src="../js/chat.js"></script>
+</body>
+</html>

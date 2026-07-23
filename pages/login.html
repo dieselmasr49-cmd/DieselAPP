@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - MappMaster</title>
+    
+    <!-- ✅ CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    
+    <div id="loginPage">
+        <!-- دوائر الخلفية -->
+        <div class="light-bg-circle circle-1"></div>
+        <div class="light-bg-circle circle-2"></div>
+        
+        <!-- فورم تسجيل الدخول -->
+        <form id="loginForm" class="loginForm crystal-form">
+            
+            <div class="login-header-wrapper">
+                <div id="accin" class="login-avatar-shield-light">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h2>تسجيل الدخول</h2>
+                <p class="login-subtitle">نظام البلاك ليست الموحد لمحطات الوقود</p>
+            </div>
+        
+            <div class="login-input-group-light">
+                <i class="fa-regular fa-user login-field-icon-light"></i>
+                <input type="text" id="companyName" placeholder="اسم المستخدم" required>
+            </div>
+        
+            <div class="login-input-group-light">
+                <i class="fa-solid fa-lock login-field-icon-light"></i>
+                <input type="password" id="Accpassword" placeholder="كلمة المرور" required>
+            </div>
+        
+            <button type="submit" id="loginBtn" class="login-btn-premium">
+                <i class="fa-solid fa-right-to-bracket"></i> دخول آمن للنظام
+            </button>
+            
+            <nav class="login-navigation-light">
+                <a href="#" class="forgot-link">هل نسيت كلمة المرور؟</a>
+                <a href="#" class="create-link">إنشاء حساب جديد</a>
+            </nav>
+        
+        </form>
+    </div>
+
+    <!-- ✅ JS -->
+    <script type="module" src="../js/shared.js"></script>
+    <script type="module" src="../js/login.js"></script>
+</body>
+</html>

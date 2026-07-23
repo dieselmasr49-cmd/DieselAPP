@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الناشر - MappMaster</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/publisher.css">
+</head>
+<body>
+
+    <!-- ✅ المحتوى -->
+    <main class="publisher-main">
+        <div class="publisher-container">
+
+            <!-- ✅ كرت الناشر -->
+            <div class="publisher-profile-card">
+                <div class="publisher-cover">
+                    <div class="publisher-avatar">
+                        <span id="publisherAvatar">🏢</span>
+                    </div>
+                </div>
+                <div class="publisher-info">
+                    <h1 id="publisherName">جاري التحميل...</h1>
+                    <p class="publisher-station" id="publisherStation">📍 المحطة: <span>--</span></p>
+                    
+                    <!-- ✅ رقم الهاتف (يظهر لو مفعل) -->
+                    <div id="publisherPhoneContainer" style="display: none;"></div>
+
+                    <!-- ✅ ✅ ✅ أزرار التواصل (زر المحادثة ثابت) -->
+                    <div class="publisher-actions" id="publisherActions">
+                        <button id="publisherCallBtn" class="btn btn-success" style="display: none;">
+                            <i class="fa-solid fa-phone"></i> اتصال
+                        </button>
+                        <button id="publisherWhatsappBtn" class="btn btn-success" style="display: none; background: #25d366;">
+                            <i class="fa-brands fa-whatsapp"></i> واتساب
+                        </button>
+                        <!-- ✅ ✅ ✅ زر المحادثة (ثابت في الـ HTML) -->
+                        <button id="openChatBtn" class="btn btn-primary" style="background: #3b82f6; padding: 10px 24px; color: white; border: none; border-radius: 8px; cursor: pointer; font-family: 'Cairo'; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-comment"></i> 💬 تواصل مع الناشر
+                        </button>
+                    </div>
+
+                    <!-- ✅ إحصائيات سريعة -->
+                    <div class="publisher-stats">
+                        <div class="publisher-stat">
+                            <span class="stat-number" id="publisherTotalCases">0</span>
+                            <span class="stat-label">📋 إجمالي الحالات</span>
+                        </div>
+                        <div class="publisher-stat">
+                            <span class="stat-number" id="publisherRank">--</span>
+                            <span class="stat-label">🏆 الترتيب</span>
+                        </div>
+                        <div class="publisher-stat">
+                            <span class="stat-number" id="publisherRate">0%</span>
+                            <span class="stat-label">📊 معدل النشر</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ✅ قائمة حالات الناشر -->
+            <div class="publisher-cases-section">
+                <div class="section-header">
+                    <h3><i class="fa-solid fa-list"></i> الحالات المنشورة</h3>
+                    <span id="publisherCasesCount" style="color: #64748b; font-size: 0.85rem;">0 حالة</span>
+                </div>
+                <div id="publisherCasesList">
+                    <div class="loading-placeholder">جاري تحميل الحالات...</div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ✅ Navigation Bar (تحت) -->
+    <footer class="bottom-nav">
+        <div class="bottom-nav-container">
+            <a href="dashboard.html" class="bottom-nav-item active">
+                <i class="fa-solid fa-house"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="blacklist.html" class="bottom-nav-item">
+                <i class="fa-solid fa-person-circle-xmark"></i>
+                <span>إضافة حالة</span>
+            </a>
+            <a href="search.html" class="bottom-nav-item">
+                <i class="fa-solid fa-magnifying-glass"></i>       
+                <span>بحث</span>
+            </a>
+            <a href="reports.html" class="bottom-nav-item">
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>التقارير</span>
+            </a>
+            <a href="settings.html" class="bottom-nav-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>الإعدادات</span>
+            </a>
+            <button id="logoutBtn" class="bottom-nav-item logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>خروج</span>
+            </button>
+        </div>
+    </footer>
+
+    <!-- ✅ JS -->
+    <script type="module" src="../js/shared.js"></script>
+    <script type="module" src="../js/session-tracker.js"></script>
+    <script type="module" src="../js/realtime-handler.js"></script>
+    <script type="module" src="../js/publisher.js"></script>
+    
+    <!-- ✅ ✅ ✅ ربط زر المحادثة (في الصفحة نفسها) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatBtn = document.getElementById('openChatBtn');
+            if (chatBtn) {
+                console.log('✅ زر المحادثة موجود في الصفحة');
+                chatBtn.addEventListener('click', function() {
+                    const publisherName = document.getElementById('publisherName')?.textContent || '';
+                    if (publisherName && publisherName !== 'جاري التحميل...') {
+                        console.log('🔄 فتح المحادثة مع:', publisherName);
+                        // ✅ استخدام الدالة من publisher.js
+                        if (typeof window.openChatWindow === 'function') {
+                            window.openChatWindow(publisherName);
+                        } else {
+                            // ✅ لو الدالة مش موجودة، ننشئ نافذة مؤقتة
+                            alert('💬 جاري تحميل المحادثة مع: ' + publisherName);
+                        }
+                    } else {
+                        alert('⚠️ انتظر حتى يتم تحميل بيانات الناشر');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

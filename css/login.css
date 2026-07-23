@@ -1,0 +1,175 @@
+/* ==========================================
+   🔐 صفحة تسجيل الدخول
+   ========================================== */
+
+   #loginPage {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #f4f7fa;
+    position: relative;
+    overflow: hidden;
+}
+
+.light-bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.circle-1 {
+    top: -10%;
+    left: 10%;
+    width: 350px;
+    height: 350px;
+    background: #3b82f6;
+}
+
+.circle-2 {
+    bottom: -10%;
+    right: 10%;
+    width: 400px;
+    height: 400px;
+    background: #60a5fa;
+}
+
+.loginForm.crystal-form {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.loginForm.crystal-form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px rgba(15, 23, 42, 0.1);
+}
+
+.login-header-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.login-avatar-shield-light {
+    font-size: 2rem;
+    color: #3b82f6;
+    background: #ffffff;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.12);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.loginForm h2 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.login-subtitle {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0;
+    font-weight: 500;
+}
+
+.login-input-group-light {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.login-field-icon-light {
+    position: absolute;
+    right: 14px;
+    color: #94a3b8;
+    font-size: 0.95rem;
+    pointer-events: none;
+}
+
+.loginForm input {
+    width: 100%;
+    padding: 13px 42px 13px 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    outline: none;
+    font-size: 0.95rem;
+    color: #0f172a;
+    background-color: #ffffff;
+    font-family: inherit;
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+}
+
+.loginForm input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+#loginBtn.login-btn-premium {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
+    transition: all 0.25s ease;
+}
+
+#loginBtn.login-btn-premium:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    box-shadow: 0 10px 24px rgba(59, 130, 246, 0.35);
+    transform: translateY(-1px);
+}
+
+.loginForm nav.login-navigation-light {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    padding: 0 2px;
+}
+
+.loginForm nav.login-navigation-light a {
+    font-size: 0.78rem;
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.loginForm nav.login-navigation-light a:hover {
+    color: #3b82f6;
+    text-decoration: underline;
+}

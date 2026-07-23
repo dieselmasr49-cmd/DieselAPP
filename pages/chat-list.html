@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المحادثات - MappMaster</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/chat-list.css">
+</head>
+<body>
+
+    <!-- ✅ الهيدر -->
+    <header class="chat-list-header">
+        <button id="backBtn" class="back-btn">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <h2>💬 المحادثات</h2>
+        <div style="width: 40px;"></div>
+    </header>
+
+    <!-- ✅ شريط البحث -->
+    <div class="chat-search-container">
+        <div class="chat-search-wrapper">
+            <i class="fa-solid fa-search search-icon"></i>
+            <input type="text" id="chatSearchInput" placeholder="ابحث في المحادثات...">
+        </div>
+    </div>
+
+    <!-- ✅ قائمة المحادثات -->
+    <main class="chat-list-main">
+        <div id="chatListContainer">
+            <div class="loading-placeholder">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                جاري تحميل المحادثات...
+            </div>
+        </div>
+    </main>
+
+    <!-- ✅ JS -->
+    <script type="module" src="../js/shared.js"></script>
+    <script type="module" src="../js/session-tracker.js"></script>
+    <script type="module" src="../js/chat-list.js"></script>
+</body>
+</html>

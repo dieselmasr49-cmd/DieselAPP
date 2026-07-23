@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - MappMaster</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+    <!-- ✅ Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+        <div class="sidebar-brand">
+            <h2><i class="fa-solid fa-shield-halved"></i> نظام التحكم</h2>
+            <small>الإدارة العليا</small>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#" data-section="dashboard" class="active"><i class="fa-solid fa-gauge-high"></i><span>لوحة القيادة</span></a></li>
+            <li><a href="#" data-section="stations"><i class="fa-solid fa-building-columns"></i><span>المحطات</span></a></li>
+            <li><a href="#" data-section="reports"><i class="fa-solid fa-chart-line"></i><span>التقارير</span></a></li>
+            <li><a href="#" data-section="users"><i class="fa-solid fa-users"></i><span>المستخدمين</span></a></li>
+            <li><a href="#" data-section="settings"><i class="fa-solid fa-gear"></i><span>الإعدادات</span></a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="avatar">أ</div>
+                <div>
+                    <div class="user-name" id="adminUserName">أمير النظام</div>
+                    <div class="user-role">Super Admin</div>
+                </div>
+            </div>
+            <button id="backToMainAppBtn" class="btn btn-danger btn-sm" style="width:100%; margin-top:10px;">
+                <i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج
+            </button>
+        </div>
+    </aside>
+
+    <!-- ✅ Main Content -->
+    <main class="admin-main">
+        <div class="admin-container">
+
+            <!-- ✅ Pages -->
+            <div class="admin-pages">
+
+                <!-- Dashboard Page -->
+                <div id="page-dashboard" class="admin-page active-page">
+                    <div class="admin-header">
+                        <div>
+                            <h2><i class="fa-solid fa-shield-halved" style="color: #1e3a8a;"></i> لوحة تحكم الإدارة العليا</h2>
+                            <p>التحكم الكامل في حسابات المحطات، مراقبة النشاط، وتحليل البيانات</p>
+                        </div>
+                    </div>
+
+                    <!-- Charts -->
+                    <div class="admin-charts-section">
+                        <div class="chart-card" style="border-top-color:#3b82f6;">
+                            <h4><i class="fa-solid fa-chart-bar" style="color:#3b82f6;"></i> معدل إدراج الحالات بحسب المحطة</h4>
+                            <div style="height:200px; position:relative;" id="adminBarsChartContainer">
+                                <div id="chartFallbackText">⏳ جاري تحليل النشاط...</div>
+                            </div>
+                        </div>
+                        <div class="chart-card" style="border-top-color:#10b981;">
+                            <h4><i class="fa-solid fa-chart-pie" style="color:#10b981;"></i> الحالة العامة للمنظومة</h4>
+                            <div style="display:flex; gap:15px; justify-content:space-around;">
+                                <div style="text-align:center; background:#f8fafc; padding:15px; border-radius:10px; flex:1;">
+                                    <span style="color:#64748b; font-size:0.8rem;">إجمالي الحسابات</span>
+                                    <strong id="adminTotalStationsCount" style="font-size:1.8rem; color:#0f172a; font-weight:700;">⏳</strong>
+                                </div>
+                                <div style="text-align:center; background:#f0fdf4; padding:15px; border-radius:10px; flex:1;">
+                                    <span style="color:#16a34a; font-size:0.8rem;">حسابات نشطة</span>
+                                    <strong id="adminActiveStationsCount" style="font-size:1.8rem; color:#16a34a; font-weight:700;">⏳</strong>
+                                </div>
+                                <div style="text-align:center; background:#fef2f2; padding:15px; border-radius:10px; flex:1;">
+                                    <span style="color:#dc2626; font-size:0.8rem;">حسابات مجمدة</span>
+                                    <strong id="adminFrozenStationsCount" style="font-size:1.8rem; color:#dc2626; font-weight:700;">⏳</strong>
+                                </div>
+                            </div>
+                            <div id="pieChartWrapper" style="height:120px; margin-top:15px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stations Page -->
+                <div id="page-stations" class="admin-page">
+                    <div class="admin-header">
+                        <div>
+                            <h2><i class="fa-solid fa-building-columns" style="color:#1e3a8a;"></i> إدارة المحطات</h2>
+                            <p>التحكم الكامل في حسابات المحطات</p>
+                        </div>
+                        <button id="addNewStationBtn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> إضافة محطة جديدة</button>
+                    </div>
+
+                    <div class="admin-controls">
+                        <div style="flex:1; min-width:280px;">
+                            <input type="text" id="adminStationSearchInput" placeholder="🔍 ابحث عن حساب..." style="width:100%; padding:11px 15px; border:1px solid #cbd5e1; border-radius:8px; font-family:'Cairo'; font-size:0.85rem; outline:none; box-sizing:border-box;">
+                        </div>
+                        <button id="adminRefreshStationsBtn" class="btn btn-secondary"><i class="fa-solid fa-arrows-rotate"></i> تحديث</button>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>اسم الحساب</th>
+                                    <th>البريد الإلكتروني</th>
+                                    <th style="text-align:center;">النشاط</th>
+                                    <th style="text-align:center;">الحالة</th>
+                                    <th style="text-align:center;">إجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminStationsTableBody">
+                                <tr><td colspan="5" style="text-align:center; padding:20px;">⏳ جاري التحميل...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Reports Page -->
+                <div id="page-reports" class="admin-page">
+                    <div class="admin-header">
+                        <div>
+                            <h2><i class="fa-solid fa-file-export" style="color:#1e3a8a;"></i> تقارير الإدارة</h2>
+                            <p>التقارير والإحصائيات المتقدمة</p>
+                        </div>
+                    </div>
+                    <div id="adminReportsContainer">
+                        <div class="loading-placeholder">جاري تحميل التقارير...</div>
+                    </div>
+                </div>
+
+                <!-- Users Page -->
+                <div id="page-users" class="admin-page">
+                    <div class="admin-header">
+                        <div>
+                            <h2><i class="fa-solid fa-users" style="color:#1e3a8a;"></i> إدارة المستخدمين</h2>
+                            <p>إدارة حسابات المستخدمين والصلاحيات</p>
+                        </div>
+                    </div>
+                    <div id="adminUsersContainer">
+                        <div class="loading-placeholder">جاري تحميل المستخدمين...</div>
+                    </div>
+                </div>
+
+                <!-- Settings Page -->
+                <div id="page-settings" class="admin-page">
+                    <div class="admin-header">
+                        <div>
+                            <h2><i class="fa-solid fa-gear" style="color:#1e3a8a;"></i> إعدادات النظام</h2>
+                            <p>إعدادات النظام العامة</p>
+                        </div>
+                    </div>
+                    <div id="adminSettingsContainer">
+                        <div class="loading-placeholder">جاري تحميل الإعدادات...</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Add Station Dialog -->
+        <div id="addStationDialog" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:10000; justify-content:center; align-items:center;">
+            <div style="background:#fff; padding:25px; border-radius:12px; width:400px; max-width:90%;">
+                <h3>إضافة محطة جديدة</h3>
+                <input type="text" id="newStationName" placeholder="اسم المحطة" style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box;">
+                <input type="email" id="newStationEmail" placeholder="البريد الإلكتروني" style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box;">
+                <input type="password" id="newStationPass" placeholder="كلمة المرور" style="width:100%; padding:10px; margin-bottom:20px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box;">
+                <div style="display:flex; gap:10px;">
+                    <button id="saveNewStation" class="btn btn-primary" style="flex:1;">حفظ</button>
+                    <button onclick="document.getElementById('addStationDialog').style.display='none'" class="btn btn-secondary" style="flex:1;">إلغاء</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<!-- ✅ JS -->
+<script type="module" src="../js/shared.js"></script>
+<script type="module" src="../js/session-tracker.js"></script>
+<script type="module" src="../js/realtime-handler.js"></script>
+<script type="module" src="../js/admin.js"></script>  <!-- ✅ صح -->
+</html>
